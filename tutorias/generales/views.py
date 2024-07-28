@@ -3,6 +3,9 @@ from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.http import HttpRequest
+from django.contrib.auth import logout
+from django.shortcuts import redirect
 
 from .forms import CustomAuthenticationForm
 # Create your views here.
@@ -20,3 +23,11 @@ class CustomLoginView(LoginView):
 @login_required
 def home(request):
     return render(request, 'home.html')
+
+
+def exit_view(request: HttpRequest):
+    if request.method == 'POST':
+        logout(request)  # Cierra la sesión del usuario
+        return redirect('login')  # Redirige al usuario a la página de login
+    else:
+        return redirect('home')

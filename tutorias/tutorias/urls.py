@@ -5,7 +5,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('myapp.urls')),  # Asegúrate de incluir las rutas de tu aplicación
+    path('', include('generales.urls')),  
 ]
 
 if settings.DEBUG:

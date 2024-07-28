@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     #APLICACIONES EXTRAS
     'usuarios',
+    'generales'
 
 ]
 

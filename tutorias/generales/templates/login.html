@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | Log in (v2)</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="{% static 'css/icheck-bootstrap.min.css' %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'css/adminlte.min.css' %}">
+  <script src="https://kit.fontawesome.com/78350df3d2.js" crossorigin="anonymous"></script>
+</head>
+<body class="hold-transition login-page">
+
+<style>
+
+    .card-primary.card-outline {
+        border-top: 3px solid #223867 !important;
+    }
+
+    .btn-primary-new {
+        background-color: #223867;
+        color: white;
+    }
+
+    .btn-primary-new:hover {
+        background-color: #1a2c53; 
+        color: white;
+    }
+    .logo-ita {
+        display: block;
+        margin: 0 auto; 
+        max-width: 100%; 
+        width: 150px; 
+    }
+
+    .card-header p {
+        margin-top: -0.5em; /* Espacio entre STPITA y el nuevo texto */
+        margin-bottom: -0.5em; /* Espacio entre STPITA y el nuevo texto */
+
+        font-size: 1rem; /* Ajusta el tamaño de la fuente según tus necesidades */
+        color: #333; /* Color del texto */
+    }
+
+
+
+
+</style>
+<div class="login-box">
+  <!-- /.login-logo -->
+  <div class="card card-outline card-primary">
+    <div class="card-header text-center">
+      <a href="../../index2.html" class="h1"><b>STP</b>ITA</a>
+      <p>Sistema de Tutorías de Posgrado</p>
+
+    </div>
+    <div class="card-body">
+        <img src="{% static 'img/logo_ita.png' %}" class="logo-ita" alt="Logo ITA">
+
+        <p class="login-box-msg">Inicia sesión para comenzar tu sesión</p>
+
+      <form action="../../index3.html" method="post">
+        <div class="input-group mb-3">
+          <input type="email" class="form-control" placeholder="Email">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" placeholder="Password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+          <!-- /.col -->
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary-new btn-block">Iniciar Sesión</button>
+        </div>
+        <div class="col-8">
+            <div class="icheck-primary">
+              <input type="checkbox" id="remember">
+              <label for="remember">
+                Recuérdame
+            </label>
+            </div>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+
+      <!-- /.social-auth-links -->
+
+      <p class="mb-1 text-center">
+        <a href="forgot-password.html">Olvidé mi contraseña</a>
+     </p>
+
+    </div>
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
+</div>
+<!-- /.login-box -->
+
+<!-- jQuery -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<!-- Bootstrap 4 -->
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static 'js/adminlte.min.js' %}"></script>
+</body>
+</html>

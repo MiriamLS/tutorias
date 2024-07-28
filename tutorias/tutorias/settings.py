@@ -131,3 +131,51 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
+AUTH_USER_MODEL = 'usuarios.CustomUser'
+
+
+
+JAZZMIN_SETTINGS = {
+  # title of the window (Will default to current_admin_site.site_title if absent or None)
+    "site_title": "STP",
+
+    # Title on the login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
+    "site_header": "STP",
+    "site_brand": "STP",
+
+    # Logo to use for your site, must be present in static files, used for brand on top left
+
+    "welcome_sign": "Bienvenido al Sistema STP",
+
+    "changeform_format": "single",
+
+
+    'icons':{
+        "comedor.TipoDieta": 'fas fa-carrot',
+        "comedor.Dietas": 'fas fa-leaf',
+        "comedor.Comedor": 'fas fa-chair',
+        "comedor.BoxLunch": 'fas fa-box-open',
+
+        'auth.user': "fas fa-user",
+        'auth.group': "fas fa-users",
+        "acuerdoinicio.TestigoUno": 'fas fa-eye',
+        "acuerdoinicio.TestigoDos": 'fas fa-eye',
+        "acuerdoinicio.Traductor": 'fas fa-language',
+        "catalogos.Tipos": 'fas fa-tags',
+        "catalogos.Estatus": 'fas fa-check',
+        "catalogos.Estado": 'fas fa-flag',
+        "catalogos.Responsable": 'fas fa-user',
+        "catalogos.Estacion": 'fas fa-subway',
+        "comparecencia.comparecencia": 'fas fa-gavel',
+        "generales.ImagenCarrousel": 'fas fa-image',
+        "pertenencias.Inventario": 'fas fa-archive',
+        "pertenencias.Pertenencias": 'fas fa-briefcase',
+        "pertenencias.Valores": 'fas fa-coins',
+        "salud.ExpedienteMedico": 'fas fa-notes-medical',
+        "usuarios.Usuario": 'fas fa-user',
+        
+    }
+
+}
+
+

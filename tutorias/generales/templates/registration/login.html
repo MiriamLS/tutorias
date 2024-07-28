@@ -19,7 +19,6 @@
 <body class="hold-transition login-page">
 
 <style>
-
     .card-primary.card-outline {
         border-top: 3px solid #223867 !important;
     }
@@ -43,39 +42,53 @@
     .card-header p {
         margin-top: -0.5em; /* Espacio entre STPITA y el nuevo texto */
         margin-bottom: -0.5em; /* Espacio entre STPITA y el nuevo texto */
-
         font-size: 1rem; /* Ajusta el tamaño de la fuente según tus necesidades */
         color: #333; /* Color del texto */
     }
-
-
-
-
+    .custom-alert {
+        background-color: #f44336;
+        color: white;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    .custom-alert-message {
+        font-weight: bold;
+    }
 </style>
+
 <div class="login-box">
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="../../index2.html" class="h1"><b>STP</b>ITA</a>
+      <a href="#" class="h1"><b>STP</b>ITA</a>
       <p>Sistema de Tutorías de Posgrado</p>
-
     </div>
     <div class="card-body">
         <img src="{% static 'img/logo_ita.png' %}" class="logo-ita" alt="Logo ITA">
-
         <p class="login-box-msg">Inicia sesión para comenzar tu sesión</p>
 
-      <form action="../../index3.html" method="post">
+        {% if messages %}
+          <div class="custom-alert" id="alert-message">
+            {% for message in messages %}
+              <span class="custom-alert-message">{{ message }}</span>
+            {% endfor %}
+          </div>
+          <br>
+        {% endif %}
+
+      <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="text" name="username" class="form-control" placeholder="Usuario o Correo Electrónico" required>
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="fas fa-user"></span>
             </div>
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -83,30 +96,26 @@
           </div>
         </div>
         <div class="row">
-
           <!-- /.col -->
           <div class="col-12">
             <button type="submit" class="btn btn-primary-new btn-block">Iniciar Sesión</button>
-        </div>
-        <div class="col-8">
+          </div>
+          <div class="col-8">
             <div class="icheck-primary">
               <input type="checkbox" id="remember">
               <label for="remember">
                 Recuérdame
-            </label>
+              </label>
             </div>
           </div>
           <!-- /.col -->
         </div>
       </form>
 
-
       <!-- /.social-auth-links -->
-
       <p class="mb-1 text-center">
         <a href="forgot-password.html">Olvidé mi contraseña</a>
-     </p>
-
+      </p>
     </div>
     <!-- /.card-body -->
   </div>
@@ -120,5 +129,14 @@
 <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 <!-- AdminLTE App -->
 <script src="{% static 'js/adminlte.min.js' %}"></script>
+<script>
+    // Desaparecer el mensaje después de 5 segundos
+    setTimeout(function() {
+        var alertMessage = document.getElementById('alert-message');
+        if (alertMessage) {
+            alertMessage.style.display = 'none';
+        }
+    }, 5000); // 5000 ms = 5 segundos
+</script>
 </body>
 </html>

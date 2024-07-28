@@ -13,6 +13,11 @@ class CustomLoginView(LoginView):
     template_name = 'registration/login.html'
     authentication_form = CustomAuthenticationForm
 
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return redirect('home')  # Redirige a 'home' si el usuario ya está autenticado
+        return super().get(request, *args, **kwargs)  # Procede normalmente si no está autenticado
+
     def form_invalid(self, form):
         messages.error(self.request, 'Usuario o contraseña incorrecta. Por favor, inténtalo de nuevo.')
         return super().form_invalid(form)

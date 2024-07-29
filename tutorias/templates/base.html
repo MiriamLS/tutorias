@@ -167,7 +167,7 @@
             <li class="nav-header">USUARIOS</li>
             <li class="nav-item">
 
-                <a href="pages/calendar.html" class="nav-link">
+                <a href="{% url "coordinadores-list" %}" class="nav-link">
                     <i class="nav-icon fas fa-chalkboard-teacher"></i>
                     <p>
                     Coordinadores
@@ -177,7 +177,7 @@
             </li>
             <li class="nav-item">
 
-                <a href="pages/calendar.html" class="nav-link">
+                <a href="{% url "docentes-list" %}" class="nav-link">
                     <i class="nav-icon fas fa-chalkboard-teacher"></i>
                     <p>
                     Docentes
@@ -186,13 +186,15 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="pages/gallery.html" class="nav-link">
+                <a href="{% url "alumnos-list" %}" class="nav-link">
                     <i class="nav-icon fas fa-user-graduate"></i>
                     <p>
                     Alumnos
                     </p>
                 </a>
             </li>
+
+            
 
              
             <li class="nav-header">Anexos</li>

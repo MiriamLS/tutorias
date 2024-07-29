@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Alumnos</h2>
+  <ul>
+    {% for user in alumnos %}
+      <li>{{ user.get_full_name }} - {{ user.email }}</li>
+    {% empty %}
+      <li>No hay alumnos registrados.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

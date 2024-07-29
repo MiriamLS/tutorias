@@ -1,0 +1,13 @@
+<!-- Template: users/coordinadores_list.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Coordinadores</h2>
+  <ul>
+    {% for user in coordinadores %}
+      <li>{{ user.get_full_name }} - {{ user.email }}</li>
+    {% empty %}
+      <li>No hay coordinadores registrados.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

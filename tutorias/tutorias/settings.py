@@ -71,7 +71,9 @@ TEMPLATES = [
                 'usuarios.context_processors.user_info',
                 'usuarios.context_processors.ensure_groups_exist',
                 'usuarios.context_processors.ensure_posgrados_exist',
+                'usuarios.context_processors.group_context',
 
+                
                 
 
             ],

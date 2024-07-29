@@ -45,3 +45,15 @@ def ensure_posgrados_exist(request):
 
     # Esta función no necesita retornar nada en el contexto
     return {}
+
+
+def group_context(request):
+
+    context = {
+        'es_coordinador': request.user.groups.filter(name='Coordinador').exists(),
+        'es_docente': request.user.groups.filter(name='Docente').exists(),
+        'es_alumno': request.user.groups.filter(name='Alumno').exists(),
+        'es_superusuario': request.user.is_superuser,  # Verificación para superusuario
+
+    }
+    return context

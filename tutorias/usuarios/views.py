@@ -16,7 +16,11 @@ class CoordinadoresListView(ListView):
     def get_queryset(self):
         coordinadores_group = Group.objects.get(name='Coordinador')
         return CustomUser.objects.filter(groups=coordinadores_group)
-
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['navbar'] = 'coordinador'
+        return context
+    
 class DocentesListView(ListView):
     model = CustomUser
     template_name = 'users/docentes_list.html'
@@ -25,6 +29,10 @@ class DocentesListView(ListView):
     def get_queryset(self):
         docentes_group = Group.objects.get(name='Docente')
         return CustomUser.objects.filter(groups=docentes_group)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['navbar'] = 'docente'
+        return context
 
 class AlumnosListView(ListView):
     model = CustomUser
@@ -34,3 +42,8 @@ class AlumnosListView(ListView):
     def get_queryset(self):
         alumnos_group = Group.objects.get(name='Alumno')
         return CustomUser.objects.filter(groups=alumnos_group)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['navbar'] = 'alumno'
+        return context

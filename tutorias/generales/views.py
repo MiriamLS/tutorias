@@ -27,7 +27,10 @@ class CustomLoginView(LoginView):
 
 @login_required
 def home(request):
-    return render(request, 'home.html')
+    context = {
+        'navbar': 'home'  # Añade el identificador de la barra de navegación
+    }
+    return render(request, 'home.html', context)
 
 
 def exit_view(request: HttpRequest):

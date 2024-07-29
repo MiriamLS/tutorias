@@ -155,7 +155,7 @@
                with font-awesome or any other icon font library -->
                
             <li class="nav-item">
-                <a href="{% url 'home' %}" class="nav-link active">
+                <a href="{% url 'home' %}" class="nav-link {% if navbar == 'home' %}active{% endif %}">
                     <i class="nav-icon fas fa-home"></i>  <!-- Cambiado a fa-home -->
                     <p>
                     Home
@@ -167,7 +167,7 @@
             <li class="nav-header">USUARIOS</li>
             <li class="nav-item">
 
-                <a href="{% url "coordinadores-list" %}" class="nav-link">
+                <a href="{% url "coordinadores-list" %}" class="nav-link {% if navbar == 'coordinador' %}active{% endif %}">
                     <i class="nav-icon fas fa-chalkboard-teacher"></i>
                     <p>
                     Coordinadores
@@ -177,7 +177,7 @@
             </li>
             <li class="nav-item">
 
-                <a href="{% url "docentes-list" %}" class="nav-link">
+                <a href="{% url "docentes-list" %}" class="nav-link {% if navbar == 'docente' %}active{% endif %}">
                     <i class="nav-icon fas fa-chalkboard-teacher"></i>
                     <p>
                     Docentes
@@ -186,7 +186,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{% url "alumnos-list" %}" class="nav-link">
+                <a href="{% url "alumnos-list" %}" class="nav-link {% if navbar == 'alumno' %}active{% endif %}">
                     <i class="nav-icon fas fa-user-graduate"></i>
                     <p>
                     Alumnos
@@ -194,7 +194,7 @@
                 </a>
             </li>
 
-            
+
 
              
             <li class="nav-header">Anexos</li>

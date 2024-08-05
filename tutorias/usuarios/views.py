@@ -61,19 +61,14 @@ class CustomUserCreateView(LoginRequiredMixin, CreateView):
     model = CustomUser
     form_class = CustomUserCreationFormUsuario
     template_name = 'registerUser.html'
-    success_url = reverse_lazy('alumnos-list')  # Cambia esto a tu URL de redirección después de la creación
+    success_url = reverse_lazy('alumnos-list')  # Asegúrate de cambiar 'detalle_familiares' por tu URL de destino.
 
     def form_valid(self, form):
-            # Primero guardamos el formulario para obtener el objeto de usuario
-            user = form.save()
-            # Obtener o crear el grupo 'Alumno'
-            grupo, created = Group.objects.get_or_create(name='Alumno')
-            # Añadir el usuario al grupo 'Alumno'
-            user.groups.add(grupo)
-            # Mostrar un mensaje de éxito
-            messages.success(self.request, "Usuario agregado con éxito como Alumno.")
-            # Redirigir a la URL de éxito
-            return redirect(self.get_success_url())
+        user = form.save()
+        grupo, created = Group.objects.get_or_create(name='Alumno')
+        user.groups.add(grupo)
+        messages.success(self.request, "Usuario agregado con éxito como Alumno.")
+        return super().form_valid(form)
 
 
     def form_invalid(self, form):
@@ -82,5 +77,5 @@ class CustomUserCreateView(LoginRequiredMixin, CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['navbar'] = 'tutorias'  # Ajusta según tu lógica de UI si es necesario
+        context['navbar'] = 'alumno'
         return context

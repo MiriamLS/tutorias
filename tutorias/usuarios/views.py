@@ -7,7 +7,8 @@ from usuarios.forms import CustomUserCreationFormUsuario
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView
-
+from django.contrib.auth.models import Group
+from django.shortcuts import redirect
 from .models import CustomUser
 
 # Create your views here.
@@ -63,9 +64,17 @@ class CustomUserCreateView(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('alumnos-list')  # Cambia esto a tu URL de redirección después de la creación
 
     def form_valid(self, form):
-        response = super().form_valid(form)
-        messages.success(self.request, "Usuario agregado con éxito como Alumno.")
-        return response
+            # Primero guardamos el formulario para obtener el objeto de usuario
+            user = form.save()
+            # Obtener o crear el grupo 'Alumno'
+            grupo, created = Group.objects.get_or_create(name='Alumno')
+            # Añadir el usuario al grupo 'Alumno'
+            user.groups.add(grupo)
+            # Mostrar un mensaje de éxito
+            messages.success(self.request, "Usuario agregado con éxito como Alumno.")
+            # Redirigir a la URL de éxito
+            return redirect(self.get_success_url())
+
 
     def form_invalid(self, form):
         messages.error(self.request, "Error al agregar el usuario. Por favor, corrija los errores en el formulario.")

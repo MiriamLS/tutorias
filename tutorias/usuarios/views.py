@@ -67,7 +67,7 @@ class CustomUserCreateView(LoginRequiredMixin, CreateView):
         user = form.save()
         grupo, created = Group.objects.get_or_create(name='Alumno')
         user.groups.add(grupo)
-        messages.success(self.request, "Usuario agregado con éxito como Alumno.")
+        messages.success(self.request, "Alumno agregado con éxito.")
         return super().form_valid(form)
 
 
